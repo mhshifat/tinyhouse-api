@@ -1,0 +1,40 @@
+type Query {
+  getListing(id: ID!): Listing
+  getListings(
+    limit: Int!
+    page: Int!
+    filterListing: FilterListingEnum!
+  ): ListingsObj!
+}
+
+type Listing {
+  _id: ID!
+  title: String!
+  description: String!
+  image: String!
+  host: User!
+  type: ListingType!
+  address: String!
+  country: String!
+  admin: String!
+  city: String!
+  bookings(limit: Int!, page: Int!): BookingsObj!
+  bookingIndex: String!
+  price: Int!
+  numOfGuests: Int!
+}
+
+enum ListingType {
+  APARTMENT
+  HOUSE
+}
+
+type ListingsObj {
+  total: Int!
+  result: [Listing!]!
+}
+
+enum FilterListingEnum {
+  PRICE_LOW_TO_HIGH
+  PRICE_HIGH_TO_LOW
+}

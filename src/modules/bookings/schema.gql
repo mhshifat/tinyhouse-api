@@ -1,0 +1,16 @@
+type Query {
+	getBookings(limit: Int!, page: Int): BookingsObj!
+}
+
+type Booking {
+	_id: ID!
+	checkIn: String!
+	checkOut: String!
+	tenant: User!
+	listing: Listing!
+}
+
+type BookingsObj {
+	total: Int!
+	result: [Booking!]!
+}

@@ -1,0 +1,26 @@
+type Query {
+	me: User
+	getUser(id: ID!): User
+}
+
+type Mutation {
+	login(input: LoginWithGoogleInput!): User
+	logout: Boolean!
+}
+
+type User {
+	_id: ID!
+	name: String!
+	avatar: String!
+	contact: String!
+	hasWallet: Boolean!
+	income: Int
+	bookings(limit: Int!, page: Int!): BookingsObj
+	listings(limit: Int!, page: Int!): ListingsObj
+}
+
+input LoginWithGoogleInput {
+	contact: String
+	name: String
+	avatar: String
+}

@@ -1,0 +1,8 @@
+type Query {
+  appInfo: AppInfo!
+}
+
+type AppInfo {
+  api: String!
+  version: String!
+}
